@@ -30,7 +30,7 @@ while (p2->next != list && p2->next != prev)
 {
 p2 = p2->next;
 }
-if (p2->next == lIST)
+if (p2->next == list)
 break;
 
 list = list->next;
