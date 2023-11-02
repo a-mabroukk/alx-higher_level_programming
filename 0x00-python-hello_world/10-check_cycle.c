@@ -38,6 +38,5 @@ list = list->next;
 return (1);
 }
 }
-
 return (0);
 }
