@@ -6,5 +6,5 @@ def new_in_list(my_list, idx, element):
     elif idx >= len(my_list):
         return modi_list
     else:
-        my_list[idx] = element
+        modi_list[idx] = element
         return modi_list
