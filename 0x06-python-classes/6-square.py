@@ -22,6 +22,10 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
+        
+    def area(self):
+        """Public instance method that returns the current square area"""
+        return self.__size * self.__size
 
     def __init__(self, size=0, position=(0, 0)):
         """New instances of square."""
