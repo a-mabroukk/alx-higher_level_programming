@@ -32,10 +32,13 @@ class Rectangle:
         """property setter to set it"""
         self.__height = value
 
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-
+        
     def __init__(self, width=0, height=0):
-        """Instantiation"""
+        """New instance of rectangle"""
         self.__width = width
         self.__height = height
+
