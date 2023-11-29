@@ -4,6 +4,12 @@
 
 class Rectangle:
     """defines a rectangle by: Private instance attribute"""
+
+    def __init__(self, width=0, height=0):
+        """New instance of rectangle"""
+        self.__width = width
+        self.__height = height
+
     @property
     def width(self):
         """property to retrieve it"""
@@ -33,8 +39,3 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-
-    def __init__(self, width=0, height=0):
-        """New instance of rectangle"""
-        self.__width = width
-        self.__height = height
