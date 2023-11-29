@@ -5,6 +5,8 @@
 class Rectangle:
     """defines a rectangle by: Private instance attribute"""
 
+    number_of_instances = 0
+
     @property
     def width(self):
         """property to retrieve it"""
@@ -39,6 +41,8 @@ class Rectangle:
         """New instance of rectangle"""
         self.width = width
         self.height = height
+
+        type(self).number_of_instances += 1
 
     def area(self):
         """returns the rectangle area"""
@@ -77,3 +81,4 @@ class Rectangle:
     def __del__(self):
         """Deletes an instance of a class"""
         print("{:s}".format("Bye rectangle..."))
+        type(self).number_of_instances -= 1
