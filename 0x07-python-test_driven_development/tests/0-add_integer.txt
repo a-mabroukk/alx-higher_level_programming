@@ -4,7 +4,7 @@
 
 Basic cases (intranet):
 -----------------------
-    
+
 >>> add_integer(2)
 100
 
@@ -68,7 +68,7 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 TypeError: a must be an integer
 
-exception OverflowError - Raised when the result of an arithmetic operation is too large to 
+exception OverflowError - Raised when the result of an arithmetic operation is too large to
 be represented.
 
 >>> add_integer(float('-inf'), float('inf'))
