@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def matrix_divided(matrix, div):
     """matrix must be a list of lists of integers/floats
     Returns a new matrix
@@ -30,7 +31,7 @@ def matrix_divided(matrix, div):
             raise TypeError('matrix must be a matrix (list of lists) '
                             'of integers/floats')
         # 2. row is empty
-        if length is 0:
+        if length == 0:
             length = len(row)
         # Each row must be the same size, TypeError
         elif len(row) is not length:
