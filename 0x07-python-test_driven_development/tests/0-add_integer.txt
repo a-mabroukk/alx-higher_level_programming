@@ -1,10 +1,5 @@
 >>> add_integer = __import__('0-add_integer').add_integer
 
-
-
-Basic cases (intranet):
------------------------
-
 >>> add_integer(2)
 100
 
@@ -25,9 +20,6 @@ TypeError: b must be an integer
 Traceback (most recent call last):
 TypeError: a must be an integer
 
-Edge cases:
-----------------
-
 >>> add_integer()
 Traceback (most recent call last):
 TypeError: add_integer() missing 1 required positional argument: 'a'
@@ -42,7 +34,8 @@ TypeError: b must be an integer
 
 >>> add_integer(34, 54, 67)
 Traceback (most recent call last):
-TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+TypeError: add_integer() takes from 1 to 2 positional
+arguments but 3 were given
 
 The result can't be a float
 >>> add_integer(2.5, 3.7)
@@ -68,8 +61,8 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 TypeError: a must be an integer
 
-exception OverflowError - Raised when the result of an arithmetic operation is too large to
-be represented.
+exception OverflowError - Raised when the result of an arithmetic
+operation is too large to be represented.
 
 >>> add_integer(float('-inf'), float('inf'))
 Traceback (most recent call last):
