@@ -14,6 +14,10 @@ class Student:
         """retrieves a dictionary representation of a
           Student instance (same as 8-class_to_json.py)
           """
-        if hasattr(attrs, "__dict__"):
-            return vars(attrs)
-        return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        new_dictionary = {}
+        for key, value in self.__dict__.items():
+            if key in attrs:
+                new_dictionary[key] = value
+        return new_dictionary
