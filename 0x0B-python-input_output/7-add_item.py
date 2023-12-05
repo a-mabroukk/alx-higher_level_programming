@@ -8,4 +8,4 @@ def save_to_json_file(my_obj, filename):
     then save them to a file
     """
     with open(filename, 'w', encoding='UTF-8') as item:
-        add_item = json.dump(my_obj, item)
+        json.dump(my_obj, item)
