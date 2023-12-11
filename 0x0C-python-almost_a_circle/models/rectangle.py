@@ -83,12 +83,16 @@ class Rectangle(Base):
 
     def display(self):
         """adding the public method that prints in stdout the Rectangle"""
+        if self.__y > 0:
+            for i in range(self.__y):
+                print()
+            self.__y = 0
         for i in range(self.__height):
             for j in range(self.__width):
+                if self.__y == j:
+                    print(" " * self.__x, end="")
                 print("#", end="")
-            if i != self.__height * 4:
-                print()
-        return ""
+            print()
 
     def __str__(self):
         """it returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
