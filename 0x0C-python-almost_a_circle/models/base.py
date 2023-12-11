@@ -58,7 +58,3 @@ class Base:
         dummy_instance.update(**dictionary)  # Update dummy instance with real values
         return dummy_instance  # Return the updated instance
 
-    def update(self, *args, **kwargs):
-        """update the current instance attributes"""
-        for key, value in kwargs.items():
-            setattr(self, key, value)
