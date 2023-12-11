@@ -48,3 +48,17 @@ class Base:
         else:
             JSON_to_Object = json.loads(json_string)
             return JSON_to_Object
+
+    """class method def create(cls, **dictionary): that returns
+    an instance with all attributes already set
+    """
+    @classmethod
+    def create(cls, **dictionary):
+        dummy_instance = cls(1, 1, 1, 1)  # Create dummy instance with "dummy" attributes
+        dummy_instance.update(**dictionary)  # Update dummy instance with real values
+        return dummy_instance  # Return the updated instance
+
+    def update(self, *args, **kwargs):
+        """update the current instance attributes"""
+        for key, value in kwargs.items():
+            setattr(self, key, value)
