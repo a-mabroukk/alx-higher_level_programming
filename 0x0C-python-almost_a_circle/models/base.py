@@ -57,4 +57,3 @@ class Base:
         dummy_instance = cls(1, 1, 1, 1)  # Create dummy instance with "dummy" attributes
         dummy_instance.update(**dictionary)  # Update dummy instance with real values
         return dummy_instance  # Return the updated instance
-
