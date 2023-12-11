@@ -31,6 +31,7 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("width must be >= 0")
 
+
     @property
     def height(self):
         """property to retrieve it"""
@@ -44,7 +45,6 @@ class Rectangle(Base):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-
     @property
     def x(self):
         """property to retrieve it"""
@@ -74,7 +74,6 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
-
     def area(self):
         """adding the public method that returns the area value of
         the Rectangle instance
