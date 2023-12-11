@@ -65,9 +65,9 @@ class Base:
     @classmethod
     def load_from_file(cls):
         '''Loads string from file and unjsonifies.'''
-        from os import path
-        file = "{}.json".format(cls.__name__)
-        if not path.isfile(file):
+        try:
+            with open(cls.__name__ + ".json", 'r') as f:
+                json_file = Base.from_json_string(f.read())
+                return [cls.create(**dct) for dct in json_file]
+        except IOError:
             return []
-        with open(file, "r", encoding="utf-8") as f:
-            return [cls.create(**d) for d in cls.from_json_string(f.read())]
