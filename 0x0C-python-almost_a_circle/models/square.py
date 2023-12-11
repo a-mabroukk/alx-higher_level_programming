@@ -15,8 +15,8 @@ class Square(Rectangle):
         """return , [Square] (<id>) <x>/<y> - <size> - in our case,
         width or height
         """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
-
+        return '[{}] ({}) {}/{} - {}'.\
+            format(type(self).__name__, self.id, self.x, self.y, self.width)
     @property
     def size(self):
         """property to retrieve it"""
