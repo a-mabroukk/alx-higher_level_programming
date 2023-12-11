@@ -53,21 +53,25 @@ class Base:
     an instance with all attributes already set
     """
     @classmethod
-    def create(cls, **dictionary):
-        if dictionary and dictionary != {}:
-            if cls.__name__ == "Rectangle":
-                new = cls(1, 1)
-            else:
-                new = cls(1)
-                new.update(**dictionary)
-                return new
+    def load_from_file(cls):
+        '''Loads string from file and unjsonifies.'''
+        from os import path
+        file = "{}.json".format(cls.__name__)
+        if not path.isfile(file):
+            return []
+        with open(file, "r", encoding="utf-8") as f:
+            return [cls.create(**d) for d in cls.from_json_string(f.read())]
 
     @classmethod
-    def load_from_file(cls):
-        """Returns a list of instances."""
-        try:
-            with open(cls.__name__ + ".json", 'r') as f:
-                json_file = Base.from_json_string(f.read())
-                return [cls.create(**dct) for dct in json_file]
-        except IOError:
-            return []
+    def create(cls, **dictionary):
+        '''Loads instance from dictionary.'''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            new = Rectangle(1, 1)
+        elif cls is Square:
+            new = Square(1)
+        else:
+            new = None
+        new.update(**dictionary)
+        return new
