@@ -9,12 +9,12 @@ class Rectangle(Base):
         """Call the super class with id - this super call with use the logic
         of the __init__ of the Base class
         """
-        super().__init__(id)
-
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+
+        super().__init__(id)
 
     @property
     def width(self):
