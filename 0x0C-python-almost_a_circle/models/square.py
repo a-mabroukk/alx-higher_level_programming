@@ -11,11 +11,10 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
-        self.width = size
-        self.height = size
-
     def __str__(self):
-        """it returns [Square] (<id>) <x>/<y> - <width>/<height>"""
+        """return [Square] (<id>) <x>/<y> - <size> - in our case,
+        width or height
+        """
         return "[{:s}] ({:d}) {:d}/{:d} - {:d}".format(
             type(self).__name__, self.id, self.x, self.y, self.width)
 
