@@ -36,4 +36,6 @@ class Base:
             list_objs = [o.to_dictionary() for o in list_objs]
             with open("{}.json".
                       format(cls.__name__), "w", encoding="utf-8") as f:
+                if list_objs is None:
+                    f.write("[]")
                 f.write(Base.to_json_string(list_objs))
