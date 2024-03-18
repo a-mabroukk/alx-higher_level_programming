@@ -10,7 +10,9 @@ if __name__ == '__main__':
     """Here, we perform a query, so we call cursor method and
     then execute queries on it"""
     c = ll.cursor()
-    c.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    c.execute("SELECT * FROM states\
+                    WHERE name LIKE BINARY 'N%'\
+                    ORDER BY id ASC")
     """Now we store results in a variable to desiplay it"""
     results = c.fetchall()
     for r in results:
