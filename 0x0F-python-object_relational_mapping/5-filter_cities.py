@@ -17,8 +17,10 @@ if __name__ == '__main__':
     """Now we store results in a variable to desiplay it"""
     results = c.fetchall()
     for r in range(len(results)):
-        print(results[r][0], end=", ")
-    print("")
+        if r[4] == state_name:
+            print(results[r][0], end=", ")
+        else:
+            print("")
     """Finally, we close a cursor"""
     c.close()
     sql_connection.close()
