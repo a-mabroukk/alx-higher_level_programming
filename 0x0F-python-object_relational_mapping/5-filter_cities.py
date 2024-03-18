@@ -16,9 +16,7 @@ if __name__ == '__main__':
              states.name = %s ORDER BY cities.id ASC", (state_name, ))
     """Now we store results in a variable to desiplay it"""
     results = c.fetchall()
-    for r in range(len(results)):
-        print(rows[r][0], end=", " if r + 1 < len(results) else "")
-    print("")
+    print(", ".join(city[0] for city in results))
     """Finally, we close a cursor"""
     c.close()
     sql_connection.close()
