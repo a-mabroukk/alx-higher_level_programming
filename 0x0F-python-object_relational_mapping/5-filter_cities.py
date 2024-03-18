@@ -17,8 +17,8 @@ if __name__ == '__main__':
     """Now we store results in a variable to desiplay it"""
     results = c.fetchall()
     for r in range(len(results)):
-        if i + 1 < len(rows):
-            print(r[0], end=", ")
+        if r + 1 < len(results):
+            print(results[r][0], end=", ")
         else:
             print("")
     """Finally, we close a cursor"""
