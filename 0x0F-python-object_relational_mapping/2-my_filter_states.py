@@ -11,7 +11,7 @@ if __name__ == '__main__':
     then execute queries on it"""
     c = ll.cursor()
     searched_name = argv[4]
-    c.execute("""SELECT * FROM states WHERE name LIKE BINARY "s%"\
+    c.execute("""SELECT * FROM states WHERE name LIKE BINARY "%s"\
              ORDER BY id""".format(searched_name))
     """Now we store results in a variable to desiplay it"""
     results = c.fetchall()
