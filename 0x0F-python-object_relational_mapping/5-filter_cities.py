@@ -18,7 +18,7 @@ if __name__ == '__main__':
     results = c.fetchall()
     for r in range(len(results)):
         if r[4] == state_name:
-            print(results[r][0], end=", ")
+            print(r[0], end=", ")
         else:
             print("")
     """Finally, we close a cursor"""
