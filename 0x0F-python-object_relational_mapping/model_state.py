@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-import MySQLAlchemy
-from MySQLAlchemy import Column, Integer, PrimaryKey, String, CHAR
-from MySQLAlchemy.exit.declarative import declarative_base()
+"""python file that contains the class definition of a
+State and an instance Base = declarative_base()"""
+from MySQLAlchemy import Column, Integer, PrimaryKey, String
+from MySQLAlchemy.ext.declarative import declarative_base
 
-Base = declarative_base():
-    class State(Base):
-        """class definition"""
-        __tablename__ = "state"
-        name = Column(String(128))
-        id = Column(Integer, primary_key=True)
+Base = declarative_base()
+
+
+class State(Base):
+    """This class links to the `states` table of our database."""
+    __tablename__ = 'states'
+
+    id = Column(Integer, autoincrement=True, nullable=False, primary_key=True)
+    name = Column(String(128), nullable=False)
