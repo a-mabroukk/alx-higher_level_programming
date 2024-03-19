@@ -9,11 +9,11 @@ if __name__ == "__main__":
                         .format(argv[1], argv[2],
                         argv[3]), pool_pre_ping=Trueecho=True)
 
-Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
-session = sessionmaker
-session = session()
+    session = sessionmaker
+    session = session()
 
-state = State()
-for instance in session.query(State).order_by(State.id).all():
-    print("{}: {}".format(state.id, state.name))
+    state = State()
+    for instance in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
