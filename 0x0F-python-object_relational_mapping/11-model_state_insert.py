@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module for database quering of first record via SQLAlchemy
+module to insert record using SQLAlchemy
 """
 import sys
 from sqlalchemy.orm import Session
@@ -15,9 +15,8 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).order_by(State.id).first()
-    if not state:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
+    new_state = State(name="Louisiana")
+    session.add(new_state)
+    session.commit()
+    print("{}".format(new_state.id))
     session.close()

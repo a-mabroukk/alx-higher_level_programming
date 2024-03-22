@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """
-module for database quering of first record via SQLAlchemy
+module for database quering using SQLAlchemy
 """
 import sys
-from sqlalchemy.orm import Session
 from model_state import Base, State
+from model_city import City
+from sqlalchemy.orm import Session
 
 from sqlalchemy import create_engine
 
@@ -15,9 +16,6 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).order_by(State.id).first()
-    if not state:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
+    for city in session.query(City).order_by(City.id).all():
+        print("{}: ({}) {}".format(city.state.name, city.id, city.name))
     session.close()

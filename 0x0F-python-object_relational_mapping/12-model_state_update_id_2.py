@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module for database quering of first record via SQLAlchemy
+module for updating a record using SQLAlchemy
 """
 import sys
 from sqlalchemy.orm import Session
@@ -15,9 +15,14 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).order_by(State.id).first()
-    if not state:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
+    # updating requires the following steps
+    # 1. quering the record needed
+    # 2. modify the attributes of the retrived object
+    # 3. commit the changes to the database
+    state2update = session.query(State).filter_by(id=2).first()
+
+    if state2update:  # check if record exists
+        state2update.name = "New Mexico"
+
+        session.commit()
     session.close()

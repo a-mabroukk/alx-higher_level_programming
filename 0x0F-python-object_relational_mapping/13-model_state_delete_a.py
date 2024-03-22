@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-module for database quering of first record via SQLAlchemy
+module for deleting records using SQLAlchemy
 """
 import sys
-from sqlalchemy.orm import Session
 from model_state import Base, State
+from sqlalchemy.orm import Session
 
 from sqlalchemy import create_engine
 
@@ -15,9 +15,8 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).order_by(State.id).first()
-    if not state:
-        print("Nothing")
-    else:
-        print("{}: {}".format(state.id, state.name))
+    records = session.query(State).filter(State.name.ilike("%a%")).all()
+    for record in records:
+        session.delete(record)
+    session.commit()
     session.close()

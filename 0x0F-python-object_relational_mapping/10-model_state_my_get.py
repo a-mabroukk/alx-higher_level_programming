@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module for database quering of first record via SQLAlchemy
+module for quering database for a record usign SQLAlchemy
 """
 import sys
 from sqlalchemy.orm import Session
@@ -15,9 +15,11 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    state = session.query(State).order_by(State.id).first()
-    if not state:
-        print("Nothing")
+    query_result = session.query(State)\
+                          .filter_by(name=sys.argv[4])\
+                          .order_by(State.id).first()
+    if not query_result:
+        print("Not found")
     else:
-        print("{}: {}".format(state.id, state.name))
+        print("{}".format(query_result.id))
     session.close()
