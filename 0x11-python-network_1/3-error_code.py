@@ -9,10 +9,11 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    url = urllib.request.Request(argv[1])
+    url = argv[1]
+    req_url = urllib.request.Request(url)
 
     try:
-        with urllib.request.urlopen(url) as reques:
+        with urllib.request.urlopen(req_url) as reques:
             print(reques.read().decode('utf-8'))
     except urllib.error.HTTPError as errors:
         print(f"Error code: {errors.code()}")
