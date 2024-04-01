@@ -9,7 +9,7 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    url = argv[1]
+    url = urllib.request.Request(argv[1])
 
     try:
         urllib.request.urlopen(url)
