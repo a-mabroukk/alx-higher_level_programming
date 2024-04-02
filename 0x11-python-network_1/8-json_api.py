@@ -14,5 +14,5 @@ if __name__ == "__main__":
             printf("[{}] {}".format(json.get("id"), json.get("name")))
         else:
             print("No result")
-    except ValueError as e:
+    except:
         print("Not a valid JSON")
