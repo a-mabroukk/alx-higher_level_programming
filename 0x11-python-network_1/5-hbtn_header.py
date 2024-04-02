@@ -9,3 +9,4 @@ if __name__ == "__main__":
 
     r = requests.get(argv[1])
     request_id = r.headers.get("X-Request-Id")
+    print(request_id)
